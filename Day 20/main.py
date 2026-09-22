@@ -1,24 +1,21 @@
-from turtle import Screen, Turtle
-
-# ---------------- SCREEN SETUP ---------------- #
+from paddle import Paddle
 
 screen = Screen()
-screen.setup(width=600, height=600)
+screen.setup(width=800, height=600)
 screen.bgcolor("black")
-screen.title("My Snake Game")
+screen.title("Pong Game")
+screen.tracer(0)
 
-# ---------------- SNAKE BODY ---------------- #
+right_paddle = Paddle()
 
-starting_positions = [(0, 0), (-20, 0), (-40, 0)]
+screen.listen()
 
-segments = []
+screen.onkey(right_paddle.go_up, "Up")
+screen.onkey(right_paddle.go_down, "Down")
 
-for position in starting_positions:
-    new_segment = Turtle("square")
-    new_segment.color("white")
-    new_segment.penup()
-    new_segment.goto(position)
-    segments.append(new_segment)
+game_is_on = True
 
-# Screen open رکھیں
-screen.mainloop()
+while game_is_on:
+    screen.update()
+
+screen.exitonclick()
