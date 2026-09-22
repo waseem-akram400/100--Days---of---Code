@@ -1,30 +1,24 @@
-from turtle import Turtle
+from turtle import Screen
+from paddle import Paddle
 
-ALIGNMENT = "center"
-FONT = ("Courier", 24, "normal")
+screen = Screen()
 
+screen.setup(width=800, height=600)
+screen.bgcolor("black")
+screen.title("Pong Game")
 
-class Scoreboard(Turtle):
+screen.tracer(0)
 
-    def __init__(self):
-        super().__init__()
-        self.score = 0
+right_paddle = Paddle()
 
-        self.color("white")
-        self.penup()
-        self.goto(0, 270)
-        self.hideturtle()
+screen.listen()
 
-        self.update_scoreboard()
+screen.onkey(right_paddle.go_up, "Up")
+screen.onkey(right_paddle.go_down, "Down")
 
-    def update_scoreboard(self):
-        self.clear()
-        self.write(
-            f"Score: {self.score}",
-            align=ALIGNMENT,
-            font=FONT
-        )
+game_is_on = True
 
-    def increase_score(self):
-        self.score += 1
-        self.update_scoreboard()
+while game_is_on:
+    screen.update()
+
+screen.exitonclick()
