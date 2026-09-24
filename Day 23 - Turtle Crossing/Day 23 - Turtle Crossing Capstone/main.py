@@ -2,46 +2,37 @@ from turtle import Turtle, Screen
 import random
 import time
 
-# --- PLAYER CLASS ---
-STARTING_POSITION = (0, -280)
-MOVE_DISTANCE = 10
-FINISH_LINE_Y = 280
-
+# --- PLAYER ---
 class Player(Turtle):
     def __init__(self):
         super().__init__()
         self.shape("turtle")
         self.penup()
-        self.go_to_start()
+        self.goto(0, -280)
         self.setheading(90)
 
     def go_up(self):
-        self.forward(MOVE_DISTANCE)
+        self.forward(10)
 
     def go_to_start(self):
-        self.goto(STARTING_POSITION)
+        self.goto(0, -280)
 
-    def is_at_finish_line(self):
-        return self.ycor() > FINISH_LINE_Y
+    def is_at_finish(self):
+        return self.ycor() > 280
 
-# --- CAR MANAGER CLASS ---
-COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
-STARTING_MOVE_DISTANCE = 5
-MOVE_INCREMENT = 10
-
+# --- CAR ---
 class CarManager:
     def __init__(self):
         self.all_cars = []
-        self.car_speed = STARTING_MOVE_DISTANCE
+        self.car_speed = 5
 
     def create_car(self):
         if random.randint(1, 6) == 1:
             new_car = Turtle("square")
             new_car.shapesize(stretch_wid=1, stretch_len=2)
             new_car.penup()
-            new_car.color(random.choice(COLORS))
-            random_y = random.randint(-250, 250)
-            new_car.goto(300, random_y)
+            new_car.color(random.choice(["red","orange","yellow","green","blue","purple"]))
+            new_car.goto(300, random.randint(-250, 250))
             self.all_cars.append(new_car)
 
     def move_cars(self):
@@ -49,11 +40,9 @@ class CarManager:
             car.backward(self.car_speed)
 
     def level_up(self):
-        self.car_speed += MOVE_INCREMENT
+        self.car_speed += 10
 
-# --- SCOREBOARD CLASS ---
-FONT = ("Courier", 24, "normal")
-
+# --- SCOREBOARD ---
 class Scoreboard(Turtle):
     def __init__(self):
         super().__init__()
@@ -61,21 +50,18 @@ class Scoreboard(Turtle):
         self.hideturtle()
         self.penup()
         self.goto(-280, 250)
-        self.update_scoreboard()
-
-    def update_scoreboard(self):
-        self.clear()
-        self.write(f"Level: {self.level}", align="left", font=FONT)
+        self.write(f"Level: {self.level}", align="left", font=("Courier", 24, "normal"))
 
     def increase_level(self):
         self.level += 1
-        self.update_scoreboard()
+        self.clear()
+        self.write(f"Level: {self.level}", align="left", font=("Courier", 24, "normal"))
 
     def game_over(self):
         self.goto(0, 0)
-        self.write(f"GAME OVER", align="center", font=FONT)
+        self.write("GAME OVER", align="center", font=("Courier", 24, "normal"))
 
-# --- MAIN GAME CODE ---
+# --- MAIN GAME ---
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
@@ -99,7 +85,7 @@ while game_is_on:
             game_is_on = False
             scoreboard.game_over()
 
-    if player.is_at_finish_line():
+    if player.is_at_finish():
         player.go_to_start()
         car_manager.level_up()
         scoreboard.increase_level()
