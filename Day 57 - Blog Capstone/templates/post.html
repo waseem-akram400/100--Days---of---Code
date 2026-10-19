@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }} | Waseem's Blog</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header class="hero small-hero">
+    <nav>
+        <a class="brand" href="{{ url_for('home') }}">Waseem's Blog</a>
+        <a href="{{ url_for('home') }}">Home</a>
+    </nav>
+</header>
+
+<main class="article-container">
+    <p class="eyebrow">BLOG ARTICLE</p>
+
+    <h1>{{ post.title }}</h1>
+    <h2 class="subtitle">{{ post.subtitle }}</h2>
+
+    <p class="author">Written by {{ post.author }}</p>
+
+    <div class="article-body">
+        <p>{{ post.body }}</p>
+    </div>
+
+    <a class="read-more" href="{{ url_for('home') }}">
+        ← Back to All Posts
+    </a>
+</main>
+
+<footer>
+    <p>Thanks for reading!</p>
+</footer>
+
+</body>
+</html>
