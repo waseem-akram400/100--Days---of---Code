@@ -1,0 +1,82 @@
+
+/* پوری ویب سائٹ کے لیے بنیادی فونٹ اور مارجن */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    color: #222;
+}
+
+/* ہیرو اور Footer کے لیے گریڈینٹ رنگ */
+.gradient-background {
+    background: linear-gradient(300deg, #00bfff, #ff4c68, #ef8172);
+    background-size: 180% 180%;
+}
+
+/* ابتدائی حصے کی تصویر */
+.hero-image {
+    max-height: 450px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* خصوصیات کے ڈبے */
+.feature-box {
+    height: 100%;
+    padding: 25px;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* خصوصیات کی سرخیاں */
+.feature-box h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* خصوصیات کی تفصیل */
+.feature-box p {
+    color: #666;
+    line-height: 1.7;
+}
+
+/* Testimonial کی تصویر */
+.testimonial-image {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* کمپنیوں کے نام */
+#partners h4 {
+    color: #555;
+    font-size: 1.2rem;
+}
+
+/* قیمتوں کے پیکج */
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    padding: 18px;
+}
+
+.card-body p {
+    margin: 15px 0;
+}
+
+/* موبائل کی چھوٹی اسکرین کے لیے */
+@media (max-width: 576px) {
+    .hero-image {
+        max-height: 300px;
+    }
+
+    #hero h1 {
+        font-size: 2rem;
+    }
+}
