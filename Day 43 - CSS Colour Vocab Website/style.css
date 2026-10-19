@@ -1,0 +1,55 @@
+
+body {
+    background-color: #f0f8ff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: darkblue;
+    font-size: 40px;
+}
+
+h2 {
+    color: #333333;
+}
+
+.colour-card {
+    background-color: white;
+    border: 2px solid lightgray;
+    border-radius: 12px;
+    margin: 20px auto;
+    padding: 15px;
+    width: 300px;
+}
+
+.colour-card p {
+    font-size: 22px;
+}
+
+.colour-box {
+    width: 150px;
+    height: 100px;
+    margin: 10px auto;
+    border-radius: 8px;
+}
+
+#red {
+    background-color: red;
+}
+
+#blue {
+    background-color: blue;
+}
+
+#green {
+    background-color: green;
+}
+
+#yellow {
+    background-color: yellow;
+}
+
+#black {
+    background-color: black;
+}
