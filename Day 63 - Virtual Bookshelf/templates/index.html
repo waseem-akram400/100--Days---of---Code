@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Virtual Bookshelf</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <main class="container">
+        <h1>My Virtual Bookshelf</h1>
+        <p>Keep track of the books you have read.</p>
+
+        <a class="button" href="{{ url_for('add_book') }}">Add New Book</a>
+
+        {% if books %}
+            <div class="book-list">
+                {% for book in books %}
+                    <section class="book">
+                        <h2>{{ book.title }}</h2>
+                        <p><strong>Author:</strong> {{ book.author }}</p>
+                        <p><strong>Rating:</strong> {{ book.rating }}/10</p>
+
+                        <a href="{{ url_for('edit_book', book_id=book.id) }}">Edit</a>
+
+                        <form action="{{ url_for('delete_book', book_id=book.id) }}"
+                              method="post" class="inline-form">
+                            <button class="delete-button" type="submit"
+                                    onclick="return confirm('Delete this book?')">
+                                Delete
+                            </button>
+                        </form>
+                    </section>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>Your bookshelf is empty. Add your first book!</p>
+        {% endif %}
+    </main>
+</body>
+</html>

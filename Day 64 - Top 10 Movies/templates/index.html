@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Top Movies</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <main class="container">
+        <h1>My Top Movies</h1>
+        <p class="subtitle">My personal movie collection, ranked by rating.</p>
+
+        <a class="button" href="{{ url_for('add_movie') }}">＋ Add Movie</a>
+
+        {% if movies %}
+            <div class="movie-list">
+                {% for movie in movies %}
+                    <article class="movie-card">
+                        <div class="rank">#{{ loop.index }}</div>
+
+                        {% if movie.img_url %}
+                            <img class="poster" src="{{ movie.img_url }}"
+                                 alt="{{ movie.title }} poster">
+                        {% else %}
+                            <div class="poster placeholder">🎬</div>
+                        {% endif %}
+
+                        <div class="movie-info">
+                            <h2>{{ movie.title }}{% if movie.year %} ({{ movie.year }}){% endif %}</h2>
+
+                            {% if movie.rating is not none %}
+                                <p class="rating">⭐ {{ "%.1f"|format(movie.rating) }}/10</p>
+                            {% else %}
+                                <p class="rating">Not rated yet</p>
+                            {% endif %}
+
+                            {% if movie.description %}
+                                <p>{{ movie.description }}</p>
+                            {% endif %}
+
+                            {% if movie.review %}
+                                <p><strong>My Review:</strong> {{ movie.review }}</p>
+                            {% endif %}
+
+                            <div class="actions">
+                                <a href="{{ url_for('edit_movie', movie_id=movie.id) }}">Edit Rating / Review</a>
+
+                                <form action="{{ url_for('delete_movie', movie_id=movie.id) }}"
+                                      method="post"
+                                      onsubmit="return confirm('Kya aap is movie ko delete karna chahte hain?')">
+                                    <button class="delete-button" type="submit">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>Abhi koi movie add nahi hui. Apni pehli movie add karein!</p>
+        {% endif %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Movie</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <main class="container">
+        <h1>Add a New Movie</h1>
+
+        <form method="post" class="movie-form">
+            <label for="title">Movie Title *</label>
+            <input id="title" name="title" required>
+
+            <label for="year">Release Year</label>
+            <input id="year" name="year" type="number" min="1888" max="2100">
+
+            <label for="description">Short Description</label>
+            <textarea id="description" name="description" rows="3"></textarea>
+
+            <label for="img_url">Movie Poster Image URL (optional)</label>
+            <input id="img_url" name="img_url" type="url"
+                   placeholder="https://example.com/poster.jpg">
+
+            <button type="submit">Add Movie</button>
+        </form>
+
+        <a href="{{ url_for('home') }}">← Back to Movie List</a>
+    </main>
+</body>
+</html>

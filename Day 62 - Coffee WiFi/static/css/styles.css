@@ -1,0 +1,13 @@
+﻿body {
+    background: #f7f4ef;
+}
+.form-card {
+    max-width: 650px;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px #00000012;
+}
+h1 {
+    color: #4b2e20;
+}

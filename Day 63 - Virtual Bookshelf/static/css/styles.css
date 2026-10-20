@@ -1,0 +1,67 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background: #f4f1ea;
+    color: #292929;
+    margin: 0;
+    padding: 30px 15px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+h1 {
+    color: #654321;
+}
+
+.book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.book {
+    background: #faf7f0;
+    padding: 18px;
+    border-radius: 8px;
+    border: 1px solid #e1d6c6;
+}
+
+.button, button {
+    display: inline-block;
+    background: #654321;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.book-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 450px;
+    margin: 20px 0;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+}
+
+.inline-form {
+    display: inline;
+    margin-left: 10px;
+}
+
+.delete-button {
+    background: #a52a2a;
+}

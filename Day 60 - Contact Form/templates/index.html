@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 60 - Contact Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    {% include "header.html" %}
+
+    <main class="container">
+        <h1>Welcome to My Website</h1>
+        <p>This is my Day 60 Flask project.</p>
+        <p>Learn how HTML forms work with Python and Flask.</p>
+        <a class="button-link" href="{{ url_for('contact') }}">Contact Me</a>
+    </main>
+
+    {% include "footer.html" %}
+</body>
+</html>
