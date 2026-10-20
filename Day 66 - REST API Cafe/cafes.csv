@@ -1,0 +1,4 @@
+﻿id,name,map_url,img_url,location,seats,has_toilet,has_wifi,has_sockets,can_take_calls,coffee_price
+cafe-001,Bean There,https://maps.google.com/,https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb,Multan,20,True,True,True,True,Rs. 450
+cafe-002,Daily Grind,https://maps.google.com/,https://images.unsplash.com/photo-1445116572660-236099ec97a0,Lahore,15,True,True,False,True,Rs. 350
+cafe-003,The Coffee House,https://maps.google.com/,https://images.unsplash.com/photo-1495474472287-4d71bcdd2085,Karachi,30,True,False,True,False,Rs. 500
