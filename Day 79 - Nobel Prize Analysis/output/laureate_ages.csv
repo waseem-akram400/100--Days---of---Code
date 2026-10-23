@@ -1,0 +1,31 @@
+year,category,laureate,country,country_code,region,sex,age
+2001,Physics,Alex Morgan,United States,USA,North America,Male,58
+2002,Medicine,Sara Khan,United Kingdom,GBR,Europe,Female,62
+2003,Chemistry,David Lee,Japan,JPN,Asia,Male,49
+2004,Peace,Maria Silva,Brazil,BRA,South America,Female,55
+2005,Literature,James Brown,France,FRA,Europe,Male,71
+2006,Physics,Amina Yusuf,Nigeria,NGA,Africa,Female,46
+2007,Medicine,Robert Chen,China,CHN,Asia,Male,60
+2008,Chemistry,Elena Rossi,Italy,ITA,Europe,Female,51
+2009,Peace,William Smith,United States,USA,North America,Male,64
+2010,Literature,Anna Novak,Poland,POL,Europe,Female,68
+2011,Physics,Kenji Sato,Japan,JPN,Asia,Male,43
+2012,Medicine,Olivia Green,Canada,CAN,North America,Female,57
+2013,Chemistry,Michael White,Germany,DEU,Europe,Male,52
+2014,Peace,Grace Okafor,Nigeria,NGA,Africa,Female,48
+2015,Literature,Lucas Martin,France,FRA,Europe,Male,73
+2016,Physics,Emily Wilson,United States,USA,North America,Female,59
+2017,Medicine,Ahmed Hassan,Egypt,EGY,Africa,Male,61
+2018,Chemistry,Mei Lin,China,CHN,Asia,Female,44
+2019,Peace,Daniel Taylor,United Kingdom,GBR,Europe,Male,66
+2020,Literature,Sofia Garcia,Spain,ESP,Europe,Female,53
+2021,Physics,Noah Johnson,United States,USA,North America,Male,47
+2022,Medicine,Isabella Brown,Canada,CAN,North America,Female,50
+2023,Chemistry,Arjun Patel,India,IND,Asia,Male,56
+2024,Peace,Layla Ahmed,Egypt,EGY,Africa,Female,42
+2000,Physics,Peter Clark,Australia,AUS,Oceania,Male,70
+2005,Medicine,Laura Miller,United States,USA,North America,Female,63
+2010,Chemistry,George King,United Kingdom,GBR,Europe,Male,54
+2015,Peace,Nadia Ali,Pakistan,PAK,Asia,Female,45
+2020,Physics,Thomas Evans,Australia,AUS,Oceania,Male,60
+2023,Medicine,Chloe Martin,France,FRA,Europe,Female,39
