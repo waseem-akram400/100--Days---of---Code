@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 84 - Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="game-container">
+        <p class="eyebrow">DAY 84 PROJECT</p>
+        <h1>Tic Tac <span>Toe</span></h1>
+        <p class="subtitle">Two players. One board. One winner!</p>
+
+        <div class="scoreboard">
+            <div class="score-card active" id="x-card">
+                <span class="player-symbol x-symbol">X</span>
+                <span class="player-label">Player X</span>
+                <span class="score" id="x-score">0</span>
+            </div>
+            <div class="score-card" id="o-card">
+                <span class="player-symbol o-symbol">O</span>
+                <span class="player-label">Player O</span>
+                <span class="score" id="o-score">0</span>
+            </div>
+        </div>
+
+        <div class="status" id="status" role="status" aria-live="polite">
+            Player X's turn
+        </div>
+
+        <div class="board" id="board" aria-label="Tic Tac Toe board">
+            <button class="cell" data-index="0" aria-label="Cell 1"></button>
+            <button class="cell" data-index="1" aria-label="Cell 2"></button>
+            <button class="cell" data-index="2" aria-label="Cell 3"></button>
+            <button class="cell" data-index="3" aria-label="Cell 4"></button>
+            <button class="cell" data-index="4" aria-label="Cell 5"></button>
+            <button class="cell" data-index="5" aria-label="Cell 6"></button>
+            <button class="cell" data-index="6" aria-label="Cell 7"></button>
+            <button class="cell" data-index="7" aria-label="Cell 8"></button>
+            <button class="cell" data-index="8" aria-label="Cell 9"></button>
+        </div>
+
+        <div class="actions">
+            <button class="button primary" id="restart">Play Again</button>
+            <button class="button secondary" id="reset-scores">Reset Scores</button>
+        </div>
+
+        <p class="instructions">
+            Take turns placing X and O. Get three in a row to win!
+        </p>
+        <footer>Built with HTML, CSS &amp; JavaScript</footer>
+    </main>
+</body>
+</html>
