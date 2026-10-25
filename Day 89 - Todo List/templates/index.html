@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Todo List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="page">
+        <header class="header">
+            <div class="logo">✓</div>
+            <p class="eyebrow">YOUR PERSONAL PLANNER</p>
+            <h1>Make today <span>count.</span></h1>
+            <p class="subtitle">Small tasks. Big progress. One step at a time.</p>
+        </header>
+
+        <section class="stats">
+            <div class="stat">
+                <span class="stat-number">{{ total }}</span>
+                <span class="stat-label">Total tasks</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">{{ remaining }}</span>
+                <span class="stat-label">Remaining</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">{{ completed }}</span>
+                <span class="stat-label">Completed</span>
+            </div>
+        </section>
+
+        <section class="todo-card">
+            <h2>My tasks</h2>
+            <form class="add-form" action="{{ url_for('add_task') }}" method="POST">
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="What do you need to do?"
+                    maxlength="200"
+                    required
+                    autocomplete="off"
+                    aria-label="New task"
+                >
+                <button type="submit">+ Add task</button>
+            </form>
+
+            {% if tasks %}
+            <ul class="task-list">
+                {% for task in tasks %}
+                <li class="task {% if task.done %}is-done{% endif %}">
+                    <form action="{{ url_for('toggle_task', task_id=task.id) }}" method="POST">
+                        <button class="check-button" type="submit"
+                            aria-label="{% if task.done %}Mark incomplete{% else %}Mark complete{% endif %}">
+                            {% if task.done %}✓{% endif %}
+                        </button>
+                    </form>
+
+                    <span class="task-title">{{ task.title }}</span>
+
+                    <form action="{{ url_for('delete_task', task_id=task.id) }}" method="POST"
+                          onsubmit="return confirm('Delete this task?');">
+                        <button class="delete-button" type="submit" aria-label="Delete task">×</button>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <div class="empty-state">
+                <div class="empty-icon">📝</div>
+                <h3>No tasks yet</h3>
+                <p>Add your first task above and get started!</p>
+            </div>
+            {% endif %}
+
+            {% if total > 0 and remaining == 0 %}
+            <p class="success-message">🎉 All tasks completed. Great job!</p>
+            {% endif %}
+        </section>
+
+        <footer>Built with Python and Flask · One task at a time</footer>
+    </main>
+</body>
+</html>
