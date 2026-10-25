@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add a Cafe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="small-hero">
+        <p class="eyebrow">GROW THE DIRECTORY</p>
+        <h1>Add a <span>cafe.</span></h1>
+        <p>Share a great place to work or study.</p>
+    </header>
+
+    <main class="form-container">
+        <form method="POST" action="{{ url_for('add_cafe') }}">
+            {% if error %}
+            <p class="error">{{ error }}</p>
+            {% endif %}
+
+            <label for="name">Cafe name *</label>
+            <input id="name" name="name" required placeholder="e.g. The Coffee House">
+
+            <label for="location">Location *</label>
+            <input id="location" name="location" required placeholder="City or address">
+
+            <label for="map_url">Google Maps link</label>
+            <input id="map_url" name="map_url" type="url" placeholder="https://maps.google.com/">
+
+            <div class="two-columns">
+                <div>
+                    <label for="open_time">Opening time</label>
+                    <input id="open_time" name="open_time" placeholder="9:00 AM">
+                </div>
+                <div>
+                    <label for="close_time">Closing time</label>
+                    <input id="close_time" name="close_time" placeholder="10:00 PM">
+                </div>
+            </div>
+
+            <label for="coffee">Coffee rating</label>
+            <select id="coffee" name="coffee">
+                <option value="☕">☕ - Fair</option>
+                <option value="☕☕" >☕☕ - Good</option>
+                <option value="☕☕☕" selected>☕☕☕ - Great</option>
+                <option value="☕☕☕☕">☕☕☕☕ - Excellent</option>
+                <option value="☕☕☕☕☕">☕☕☕☕☕ - Amazing</option>
+            </select>
+
+            <div class="two-columns">
+                <div>
+                    <label for="wifi">Wi-Fi available?</label>
+                    <select id="wifi" name="wifi">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="power">Power sockets?</label>
+                    <select id="power" name="power">
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="button submit-button" type="submit">Save Cafe</button>
+            <a class="back-link" href="{{ url_for('home') }}">← Back to all cafes</a>
+        </form>
+    </main>
+</body>
+</html>
