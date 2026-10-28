@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automation Practice Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2ff;
+            margin: 0;
+            padding: 40px 15px;
+        }
+        .card {
+            max-width: 440px;
+            margin: auto;
+            padding: 30px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 8px 30px #00000012;
+        }
+        h1 { color: #243b75; }
+        label {
+            display: block;
+            margin-top: 18px;
+            font-weight: bold;
+        }
+        input {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+        }
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 24px;
+            border: 0;
+            border-radius: 8px;
+            background: #3157c8;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 12px;
+            background: #dcfce7;
+            color: #166534;
+            border-radius: 8px;
+        }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <main class="card">
+        <h1>Automation Practice</h1>
+        <p>Selenium will automatically complete this test form.</p>
+
+        <form id="practice-form">
+            <label for="name">Your Name</label>
+            <input id="name" name="name" type="text" required>
+
+            <label for="email">Your Email</label>
+            <input id="email" name="email" type="email" required>
+
+            <button id="submit" type="submit">Submit Form</button>
+        </form>
+
+        <div id="result" class="hidden" role="status"></div>
+    </main>
+
+    <script>
+        document.getElementById("practice-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const result = document.getElementById("result");
+
+            result.textContent = "Success! Welcome, " + name + ". Form submitted.";
+            result.classList.remove("hidden");
+        });
+    </script>
+</body>
+</html>
