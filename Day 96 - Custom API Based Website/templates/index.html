@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Explorer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <p class="eyebrow">CUSTOM API PROJECT · DAY 96</p>
+            <h1>Weather Explorer</h1>
+            <p class="subtitle">Discover current weather and a 3-day forecast.</p>
+        </header>
+
+        <form method="POST" class="search-form">
+            <input type="text" name="city" placeholder="Enter a city, e.g. Multan"
+                   value="{{ city }}" required>
+            <button type="submit">Search</button>
+        </form>
+
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+
+        {% if weather %}
+            {% set current = weather.current %}
+            <section class="current-card">
+                <div>
+                    <p class="location">{{ current.city }}, {{ current.country }}</p>
+                    <h2>{{ current.description }}</h2>
+                    <p class="muted">Local time zone: {{ current.timezone }}</p>
+                </div>
+                <div class="temperature">{{ current.temperature_2m }}°C</div>
+            </section>
+
+            <section class="details">
+                <article class="detail-card">
+                    <span>Feels like</span>
+                    <strong>{{ current.apparent_temperature }}°C</strong>
+                </article>
+                <article class="detail-card">
+                    <span>Humidity</span>
+                    <strong>{{ current.relative_humidity_2m }}%</strong>
+                </article>
+                <article class="detail-card">
+                    <span>Wind speed</span>
+                    <strong>{{ current.wind_speed_10m }} km/h</strong>
+                </article>
+                <article class="detail-card">
+                    <span>Precipitation</span>
+                    <strong>{{ current.precipitation }} mm</strong>
+                </article>
+            </section>
+
+            <h2 class="forecast-title">3-Day Forecast</h2>
+            <section class="forecast">
+                {% for day in weather.forecast %}
+                    <article class="forecast-card">
+                        <strong>{{ day.date }}</strong>
+                        <p>{{ day.description }}</p>
+                        <p class="high-low">
+                            <span>High {{ day.high }}°C</span>
+                            <span>Low {{ day.low }}°C</span>
+                        </p>
+                    </article>
+                {% endfor %}
+            </section>
+        {% endif %}
+
+        <footer>
+            Weather data provided by Open-Meteo · No API key required
+        </footer>
+    </main>
+</body>
+</html>

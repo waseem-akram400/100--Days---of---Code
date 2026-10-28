@@ -1,0 +1,173 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #101a35, #243b65);
+    color: #ffffff;
+    padding: 40px 16px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.eyebrow {
+    color: #81e6d9;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: clamp(32px, 6vw, 52px);
+    margin: 12px 0;
+}
+
+.subtitle, .muted {
+    color: #c2cde0;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    max-width: 600px;
+    margin: 0 auto 24px;
+}
+
+input {
+    flex: 1;
+    min-width: 0;
+    padding: 15px;
+    border: 1px solid #526889;
+    border-radius: 12px;
+    background: #ffffff;
+    color: #172033;
+    font-size: 16px;
+}
+
+button {
+    padding: 15px 22px;
+    border: 0;
+    border-radius: 12px;
+    background: #81e6d9;
+    color: #102033;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #5bd4c4;
+}
+
+.current-card, .detail-card, .forecast-card {
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 18px;
+    padding: 22px;
+}
+
+.current-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+
+.location {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.current-card h2 {
+    margin-bottom: 8px;
+}
+
+.temperature {
+    font-size: clamp(42px, 8vw, 68px);
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.details {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.detail-card span {
+    display: block;
+    color: #c2cde0;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.detail-card strong {
+    font-size: 19px;
+}
+
+.forecast-title {
+    margin-top: 32px;
+}
+
+.forecast {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.forecast-card p {
+    color: #c2cde0;
+}
+
+.high-low {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.error {
+    max-width: 600px;
+    margin: 0 auto 20px;
+    padding: 15px;
+    border-radius: 12px;
+    background: #5b2635;
+    color: #ffe1e8;
+}
+
+footer {
+    text-align: center;
+    color: #c2cde0;
+    font-size: 13px;
+    margin-top: 35px;
+}
+
+@media (max-width: 650px) {
+    .details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .forecast {
+        grid-template-columns: 1fr;
+    }
+
+    .current-card {
+        align-items: flex-start;
+        flex-direction: column-reverse;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+}
